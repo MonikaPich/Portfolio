@@ -1,0 +1,805 @@
+{
+	"info": {
+		"_postman_id": "d9099f5b-3e17-40a7-8d9c-f0412987b61c",
+		"name": "Inspost tworzenie nowej przesyłki",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28799412"
+	},
+	"item": [
+		{
+			"name": "TC1 Nowa przesyłka",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "truckerId",
+						"value": "5289956",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@inpost.pl\",\n        \"phone\": \"888222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"small\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 12.50,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n            \"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC13 Nowa przesyłka bez cod",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@inpost.pl\",\n        \"phone\": \"888222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"small\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n            \"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC11 Nowa przesyłka bez pobrania acount=0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"COD amount is too small\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.details.cod[0].amount[0]).to.eql(\"too_small\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@test.pl\",\n        \"phone\": \"111222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"small\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 0,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n            \"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC12 Nowa przesyłka z kwotą pobrania powyżej maksymalnej wartości",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"COD amount is too high\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.details.cod[0].amount[0]).to.eql(\"too_high\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@test.pl\",\n        \"phone\": \"111222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"small\"\n    },\n    \"insurance\": {\n        \"amount\": 5000,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 5001,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n            \"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC5 Nowa przesyłka bez nazwy paczkomatu",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"target point does_not_exist\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.details.custom_attributes[0].target_point[0]).to.eql(\"does_not_exist\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@inpost.pl\",\n        \"phone\": \"111222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"small\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n    \t\"sending_method\": \"dispatch_order\",\n        \"target_point\": \"null\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC10 Nowa przesyłka z błędną nazwą paczkomatu",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"target point does_not_exist\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.details.custom_attributes[0].target_point[0]).to.eql(\"does_not_exist\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@inpost.pl\",\n        \"phone\": \"111222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"small\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 12.50,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n    \t\"sending_method\": \"dispatch_order\",\n        \"target_point\": \"lx0924A\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC2 Nowa przesyłka z błędnym formatem nr telefonu",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"phone number is invalid\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.details.receiver[0].phone[0]).to.eql(\"invalid\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@inpost.pl\",\n        \"phone\": \"111-222-333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"small\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 12.50,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n    \t\"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC8 Nowa przesyłka bez nr telefonu",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"phone number is invalid\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.details.receiver[0].phone[0]).to.eql(\"invalid\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@inpost.pl\",\n        \"phone\": \"null\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"small\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 12.50,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n    \t\"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC7 Nowa przesyłka z błędnym rozmiarem przesyłki",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"template is unknown\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.details.parcels[0][0].template[0]).to.eql(\"unknown\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@inpost.pl\",\n        \"phone\": \"111222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"xlarge\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 12.50,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n    \t\"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC14 Now przesyłka z błędną nazwą rozmiaru przesyłki",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"template is unknown\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.details.parcels[0][0].template[0]).to.eql(\"unknown\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@inpost.pl\",\n        \"phone\": \"111222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"A\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 12.50,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n    \t\"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC6 Nowa przesyłka z błędnym formatem adresu email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"email is invalid\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.details.receiver[0].email[0]).to.eql(\"invalid\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test.test.pl\",\n        \"phone\": \"111222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"large\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 12.50,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n    \t\"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC9 Nowa przesyłka bez adresu email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"email is invalid\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.details.receiver[0].email[0]).to.eql(\"invalid\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"null\",\n        \"phone\": \"111222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"large\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 12.50,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n    \t\"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC3 Nowa przesyłka dla nieistniejącej organizacji",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 403\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"pm.test(\"Access forbidden for this token\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.eql(\"forbidden\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n        \"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",\n        \"email\": \"test@inpost.pl\",\n        \"phone\": \"888222333\"\n    },\n    \"parcels\": \n        {\n            \"template\": \"small\"\n    },\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 12.50,\n        \"currency\": \"PLN\"\n    },\n    \"custom_attributes\": {\n            \"sending_method\": \"dispatch_order\",\n        \"target_point\": \"KRA012\"\n    },\n    \"service\": \"inpost_locker_standard\",\n    \"reference\": \"Test\",\n    \"external_customer_id\": \"8877xxx\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC4 Nowa przesyłka z brakiem umowy na usługę",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"trucker_ID_is_not_set_for_organization\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.error).to.eql(\"missing_trucker_id\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"receiver\": {\n        \"name\": \"Name\",\n        \"company_name\": \"Company name\",\n    \t\"first_name\": \"Jan\",\n        \"last_name\": \"Kowalski\",  \n        \"email\": \"receiver@example.com\",\n        \"phone\": \"888000000\",\n        \"address\": {\n            \"street\": \"Cybernetyki\",\n            \"building_number\": \"10\",\n            \"city\": \"Warszawa\",\n            \"post_code\": \"02-677\",\n            \"country_code\": \"PL\"\n        }\n    },\n    \"parcels\": [\n        {\n            \"id\": \"small package\",\n            \"dimensions\": {\n                \"length\": \"80\",\n                \"width\": \"360\",\n                \"height\": \"640\",\n                \"unit\": \"mm\"\n            },\n            \"weight\": {\n                \"amount\": \"25\",\n                \"unit\": \"kg\"\n            },\n             \"is_non_standard\": false\n        }\n    ],\n    \"insurance\": {\n        \"amount\": 25,\n        \"currency\": \"PLN\"\n    },\n    \"cod\": {\n        \"amount\": 12.50,\n        \"currency\": \"PLN\"\n    },\n    \"service\": \"inpost_courier_standard\",\n    \"additional_services\": [\"email\", \"sms\"],\n    \"reference\": \"Test\",\n    \"comments\": \"dowolny komentarz\",\n    \"external_customer_id\": \"8877xxx\",\n    \"mpk\": \"Nazwa miejsca powstania kosztów\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/{{ID}}/shipments",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"{{ID}}",
+						"shipments"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
