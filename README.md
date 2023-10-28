@@ -1,21 +1,35 @@
 # Monika Pichlińska
 ### Junior Manual Tester
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/monika-pichlińska-157675283)
-## O mnie
-Logistyk z 12 letnim doświadczeniem. Podczas dotychczasowej pracy miałam okazję brać udział w testach akceptacyjnych beta przy wdrażaniu nowego systemu Wms w organizacji, dzięki czemu zainteresowałam się testowaniem oprogramowana.
-W październiku 2023 uzyskałam Certyfikat ISTQB Tester Foundation Level.
-Chcę rozwijać się zawodowo i podejmować nowe wyzwania wykorzystując zdobyta wiedzę w zakresie logistyki w testowaniu oprogramowania.
+## meAbout 
+A logistician with 12 years' experience. During my career, I had the opportunity to participate in beta acceptance testing during the implementation of a new WMS system in the organisation, which sparked my interest in software testing. In October 2023 I obtained the ISTQB Tester Foundation Level Certificate. I would like to continue my professional development and take on new challenges, using my knowledge of logistics for software testing.
 
-## Umiejętności
+## Skils
 * Postman
 * SQL
-* Protokół HTTP
+* HTTP Protocol
 * Rest API
-* Tworzenie przypadków testowych
+* Test Case creating
 * ERP (CDN)
 * WMS (Synaptic, Logifact)
 
 ## Portfolio
-##### Inpost API ShipX - Testy funkcjonalne
-* [Przypadki testowe- inpost tworzenie przesyłki (PDF)](tworzenie_przesylki_inpost_przypadki_testowe.pdf) 
+##### Inpost API ShipX - functional tests
+* [Przypadki testowe- inpost tworzenie przesyłki (XLSX)](TS 1 Przypadki testowe - tworzenie przesyłek v2.xlsx) 
 * [Inpost tworzenie przesyłki kolekcja zapytań Postman v2.1](Inspost_tworzenie_nowej_przesyłki.postman_collection.json)     
+
+## Certificates
+ISTQB Certified Tester Foundation Level
+Issued October 2023
+ID CTFL3-2023-21290-SJSI
+
+## Blogs about testing
+* testerzy.pl(https://testerzy.pl)
+* guru99.com(https://www.guru99.com/)
+* wyszkolewas.com.pl(https://www.wyszkolewas.com.pl/blog/)
+* testuj.pl(https://testuj.pl/blog)
+
+## Groups about testing
+* testowanie oprogramowania(https://www.facebook.com/groups/TestowanieOprogramowania)
+* ISTQB -  egzaminy, pytania, testy(https://www.facebook.com/groups/194288250951242)
+* testowanie oprogramowania - praca, ogłoszenia(https://www.facebook.com/groups/215557562210470)
