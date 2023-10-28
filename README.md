@@ -1,7 +1,7 @@
 # Monika Pichlińska
 ### Junior Manual Tester
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/monika-pichlińska-157675283)
-## meAbout 
+## About me
 A logistician with 12 years' experience. During my career, I had the opportunity to participate in beta acceptance testing during the implementation of a new WMS system in the organisation, which sparked my interest in software testing. In October 2023 I obtained the ISTQB Tester Foundation Level Certificate. I would like to continue my professional development and take on new challenges, using my knowledge of logistics for software testing.
 
 ## Skils
@@ -17,6 +17,7 @@ A logistician with 12 years' experience. During my career, I had the opportunity
 ##### Inpost API ShipX - functional tests
 * [Przypadki testowe- inpost tworzenie przesyłki (XLSX)](TS 1 Przypadki testowe - tworzenie przesyłek v2.xlsx) 
 * [Inpost tworzenie przesyłki kolekcja zapytań Postman v2.1](Inspost_tworzenie_nowej_przesyłki.postman_collection.json)     
+* [My SQL training] (https://github.com/MonikaPich/Portfolio/tree/master/sql#my-sql-training)
 
 ## Certificates
 ISTQB Certified Tester Foundation Level
