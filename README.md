@@ -21,17 +21,17 @@ A logistician with 12 years' experience. During my career, I had the opportunity
 * [My SQL training](https://github.com/MonikaPich/Portfolio/tree/master/sql#my-sql-training)
 
 ## Certificates
-ISTQB Certified Tester Foundation Level
-Issued October 2023
+ISTQB Certified Tester Foundation Level\
+Issued October 2023\
 ID CTFL3-2023-21290-SJSI
 
 ## Blogs about testing
-* testerzy.pl(https://testerzy.pl)
-* guru99.com(https://www.guru99.com/)
-* wyszkolewas.com.pl(https://www.wyszkolewas.com.pl/blog/)
-* testuj.pl(https://testuj.pl/blog)
+* [testerzy.pl](https://testerzy.pl)
+* [guru99.com](https://www.guru99.com/)
+* [wyszkolewas.com.pl](https://www.wyszkolewas.com.pl/blog/)
+* [testuj.pl](https://testuj.pl/blog)
 
 ## Groups about testing
-* testowanie oprogramowania(https://www.facebook.com/groups/TestowanieOprogramowania)
-* ISTQB -  egzaminy, pytania, testy(https://www.facebook.com/groups/194288250951242)
-* testowanie oprogramowania - praca, ogłoszenia(https://www.facebook.com/groups/215557562210470)
+* [testowanie oprogramowania](https://www.facebook.com/groups/TestowanieOprogramowania)
+* [ISTQB -  egzaminy, pytania, testy](https://www.facebook.com/groups/194288250951242)
+* [testowanie oprogramowania - praca, ogłoszenia](https://www.facebook.com/groups/215557562210470)
