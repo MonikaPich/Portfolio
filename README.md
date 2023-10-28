@@ -15,9 +15,10 @@ A logistician with 12 years' experience. During my career, I had the opportunity
 
 ## Portfolio
 ##### Inpost API ShipX - functional tests
-* [Przypadki testowe- inpost tworzenie przesyłki (XLSX)](TS 1 Przypadki testowe - tworzenie przesyłek v2.xlsx) 
-* [Inpost tworzenie przesyłki kolekcja zapytań Postman v2.1](Inspost_tworzenie_nowej_przesyłki.postman_collection.json)     
-* [My SQL training] (https://github.com/MonikaPich/Portfolio/tree/master/sql#my-sql-training)
+* [Scenariusze testowe Inpost ShipX](Scenariusze_testowe_Inpost_API_ShipX.xlsx)
+* [Przypadki testowe- inpost tworzenie przesyłki](TS_1_Przypadki_testowe_tworzenie_przesylek_v2.xlsx) 
+* [Inpost tworzenie przesyłki kolekcja zapytań Postman v2.1](Inspost_tworzenie_nowej_przesylki.postman_collection.json) 
+* [My SQL training](https://github.com/MonikaPich/Portfolio/tree/master/sql#my-sql-training)
 
 ## Certificates
 ISTQB Certified Tester Foundation Level
