@@ -1,6 +1,6 @@
 # My SQL training
 ### Example queries 
-Database source: https://github.com/datacharmer/test_dbhttps://github.com/datacharmer/test_db
+Database source: https://github.com/datacharmer/test_db
 
 1. pokaż pracowników zatrudnionych po 1999 roku
 ```sql
