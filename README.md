@@ -16,6 +16,7 @@ A logistician with 12 years' experience. During my career, I had the opportunity
 * WMS (Synaptic, Logifact)
 
 ## Portfolio
+
 ##### Inpost API ShipX - functional tests
 [Documentaction source](https://dokumentacja-inpost.atlassian.net/wiki/spaces/PL/overview?homepageId=622760)
 
@@ -30,6 +31,9 @@ A logistician with 12 years' experience. During my career, I had the opportunity
 
 
 ##### TestLink
+* [My TestLink training - report HTML](https://github.com/MonikaPich/Portfolio/blob/master/TestLink/TestLink_IAS_test_spec.html)
+* [My Testlink project export](https://github.com/MonikaPich/Portfolio/blob/master/TestLink/Inpost%20API%20ShipX.testproject-deep(1).xml)
+
 
 ## Certificates
 ISTQB Certified Tester Foundation Level\
