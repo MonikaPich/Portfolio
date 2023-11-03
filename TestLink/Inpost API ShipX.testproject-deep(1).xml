@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite id="" name="" >
+<node_order><![CDATA[]]></node_order>
+<details><![CDATA[]]></details> 
+<testsuite id="2" name="Tworzenie nowej przesyłki paczkomat 24/7" >
+<node_order><![CDATA[1]]></node_order>
+<details><![CDATA[<p>Version: 1.61.1-(2023-10-12)</p>
+
+<p>Environment: Sandbox</p>
+
+<p>Author: Monika Pchlińska</p>
+
+<p>Creation date: 28.10.2023</p>
+
+<p>test purpose :Celem testu jest sprawdzenie funkcjonalności tworzenia nowej przesyłki w usłudze Inpost paczkomat 24/7</p>
+
+<p>preconditions: 1. Sprawdzenie czy użytkownik posiada aktywne konto z nadanym numerem organizacji<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. Sprawdzenie czy użytkownik posiada ważny Token</p>
+
+<p>&nbsp;</p>
+]]></details> 
+
+<testcase internalid="4" name="TC 2.1 - Tworzenie przesyłki  Inpost paczkomat 24/7">
+	<node_order><![CDATA[0]]></node_order>
+	<externalid><![CDATA[1]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>TC 2.1 - Tworzenie przesyłki&nbsp; Inpost paczkomat 24/7</p>
+
+<p>Platforma - Postman</p>
+
+<p>Metoda HTTP : POST</p>
+
+<p>Środowisko : sandbox</p>
+
+<p>Wersja 1.61.1-(2023-10-12)</p>
+
+<p>URL: https://sandbox-api-shipx-pl.easypack24.net</p>
+]]></summary>
+	<preconditions><![CDATA[<ol>
+	<li>Użytkownik musi posiadać token,</li>
+	<li>Użytkownik musi posiadać nr id klienta - dosepny po autoryzacji</li>
+	<li>Użytkownik musi posiadać nr umowy id trucker</li>
+</ol>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>1.&nbsp; Wybierz endpoint -v1/organizations/(id_organizations)/shipments, uzupełnij odpowiedni ID organizacji</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>1. Utworzono poprawny adrrs URL</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>2. W zakładce authorization wybierz typ autoryzacji &quot;bearer token&quot; oraz uzupełnij pole &quot;token&quot; swoim nr token</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>2. Token został poprawnie wpisany</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>3. Należy uzupełnić dane wzakladce body wg&nbsp; wzoru zasobu (format JSON)<br />
+{<br />
+&nbsp;&nbsp;&nbsp; &quot;receiver&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;name&quot;: &quot;Name&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;company_name&quot;: &quot;Company name&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;first_name&quot;: &quot;Jan&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;last_name&quot;: &quot;Kowalski&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;email&quot;: &quot;test@inpost.pl&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;phone&quot;: &quot;111222333&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;parcels&quot;:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;template&quot;: &quot;small&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;insurance&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;amount&quot;: 25,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;currency&quot;: &quot;PLN&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;cod&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;amount&quot;: 12.50,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;currency&quot;: &quot;PLN&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;custom_attributes&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;sending_method&quot;: &quot;dispatch_order&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;target_point&quot;: &quot;KRA012&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;service&quot;: &quot;inpost_locker_standard&quot;,<br />
+&nbsp;&nbsp;&nbsp; &quot;reference&quot;: &quot;Test&quot;,<br />
+&nbsp;&nbsp;&nbsp; &quot;external_customer_id&quot;: &quot;8877xxx&quot;<br />
+}&#39;</p>
+
+<p>&nbsp;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>3.&nbsp; Zakładka &quot;body&quot; została poprawnie uzupełniona</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>4. Naciśnij przycisk &quot;SEND&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>4. Pojawia się kod opowiedzi &quot;kod odpowiedzi HTTP : 201 CREATED</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="19" name=" TC 2.2 - Tworzenie paczki paczkomat 24/7 z błędnym nr telefonu">
+	<node_order><![CDATA[1]]></node_order>
+	<externalid><![CDATA[2]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>TC 2.1 - Tworzenie przesyłki Inpost paczkomat 24/7 z błędnym nr telefonu</p>
+
+<p>Platforma - Postman</p>
+
+<p>Metoda HTTP : POST</p>
+
+<p>Środowisko : sandbox</p>
+
+<p>Wersja 1.61.1-(2023-10-12)</p>
+
+<p>URL: https://sandbox-api-shipx-pl.easypack24.net</p>
+]]></summary>
+	<preconditions><![CDATA[<ol>
+	<li>Użytkownik musi posiadać token,</li>
+	<li>Użytkownik musi posiadać nr id klienta - dosepny po autoryzacji</li>
+	<li>Użytkownik musi posiadać nr umowy id trucker</li>
+</ol>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>1.&nbsp; Wybierz endpoint -v1/organizations/(id_organizations)/shipments, uzupełnij odpowiedni ID organizacji</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>1. Utworzono poprawny adrrs URL</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>2. W zakładce authorization wybierz typ autoryzacji &quot;bearer token&quot; oraz uzupełnij pole &quot;token&quot; swoim nr token</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>2. Token został poprawnie wpisany</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>3. Należy uzupełnić dane wzakladce body wg&nbsp; wzoru zasobu (format JSON)<br />
+{<br />
+&nbsp;&nbsp;&nbsp; &quot;receiver&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;name&quot;: &quot;Name&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;company_name&quot;: &quot;Company name&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;first_name&quot;: &quot;Jan&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;last_name&quot;: &quot;Kowalski&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;email&quot;: &quot;test@inpost.pl&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;phone&quot;: &quot;111222333&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;parcels&quot;:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;template&quot;: &quot;small&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;insurance&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;amount&quot;: 25,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;currency&quot;: &quot;PLN&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;cod&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;amount&quot;: 12.50,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;currency&quot;: &quot;PLN&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;custom_attributes&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;sending_method&quot;: &quot;dispatch_order&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;target_point&quot;: &quot;KRA012&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;service&quot;: &quot;inpost_locker_standard&quot;,<br />
+&nbsp;&nbsp;&nbsp; &quot;reference&quot;: &quot;Test&quot;,<br />
+&nbsp;&nbsp;&nbsp; &quot;external_customer_id&quot;: &quot;8877xxx&quot;<br />
+}&#39;</p>
+
+<p>&nbsp;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>3.&nbsp; Zakładka &quot;body&quot; została poprawnie uzupełniona</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>4. Uzupełnij parametr &quot;&quot;phone&quot;: błędnym formatem np 123-123-123</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>4. Format nr telefonu został zmieniony</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>5. Naciśnij przycisk &quot;SEND&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>5. Kod odpowiedzi 400 bad request.&nbsp; W body odpowiedzi pojawi się informacja o błędzie validation_failed</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="30" name="TC 2.3 - Tworzenie paczki paczkomat 24/7 z błędnym ID organizacji">
+	<node_order><![CDATA[2]]></node_order>
+	<externalid><![CDATA[3]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>TC 2.1 - Tworzenie przesyłki Inpost paczkomat 24/7 dla niepoprawnego nr organizacji</p>
+
+<p>Platforma - Postman</p>
+
+<p>Metoda HTTP : POST</p>
+
+<p>Środowisko : sandbox</p>
+
+<p>Wersja 1.61.1-(2023-10-12)</p>
+
+<p>URL: https://sandbox-api-shipx-pl.easypack24.net</p>
+]]></summary>
+	<preconditions><![CDATA[<ol>
+	<li>Użytkownik musi posiadać token,</li>
+	<li>Użytkownik musi posiadać nr id klienta - dosepny po autoryzacji</li>
+	<li>Użytkownik musi posiadać nr umowy id trucker</li>
+</ol>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>1. 1.&nbsp; Wybierz endpoint -v1/organizations/(id_organizations)/shipments, uzupełnij odpowiedni ID organizacji</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>1. Utworzono poprawny adrrs URL</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>2. W zakładce authorization wybierz typ autoryzacji &quot;bearer token&quot; oraz uzupełnij pole &quot;token&quot; swoim nr token</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>2. Token został poprawnie wpisany</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>3. Należy uzupełnić dane wzakladce body wg&nbsp; wzoru zasobu (format JSON)<br />
+{<br />
+&nbsp;&nbsp;&nbsp; &quot;receiver&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;name&quot;: &quot;Name&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;company_name&quot;: &quot;Company name&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;first_name&quot;: &quot;Jan&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;last_name&quot;: &quot;Kowalski&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;email&quot;: &quot;test@inpost.pl&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;phone&quot;: &quot;111222333&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;parcels&quot;:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;template&quot;: &quot;small&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;insurance&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;amount&quot;: 25,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;currency&quot;: &quot;PLN&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;cod&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;amount&quot;: 12.50,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;currency&quot;: &quot;PLN&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;custom_attributes&quot;: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;sending_method&quot;: &quot;dispatch_order&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;target_point&quot;: &quot;KRA012&quot;<br />
+&nbsp;&nbsp;&nbsp; },<br />
+&nbsp;&nbsp;&nbsp; &quot;service&quot;: &quot;inpost_locker_standard&quot;,<br />
+&nbsp;&nbsp;&nbsp; &quot;reference&quot;: &quot;Test&quot;,<br />
+&nbsp;&nbsp;&nbsp; &quot;external_customer_id&quot;: &quot;8877xxx&quot;<br />
+}&#39;</p>
+
+<p>&nbsp;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>3.&nbsp; Zakładka &quot;body&quot; została poprawnie uzupełniona</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>4. Uzupełniając endpoint wpisz błędny id organizations - inny niż dostępny po autoryzacji</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>4. ID organizacji zostało uzupełnione błędnym nr</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>5. Naciśnij przycisk &quot;SEND&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>5. Kod odpowiedzi 403 forbidden. W body odpowiedzi pojawi się informacja o błędzie &quot;forbidden&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite><testsuite id="11" name="Tworzenie podglądu przesyłek" >
+<node_order><![CDATA[2]]></node_order>
+<details><![CDATA[<p>Przypadki testowe dotyczące tworzenia podglądu przesyłek</p>
+]]></details> 
+</testsuite><testsuite id="12" name="Aktualizowanie przesyłki" >
+<node_order><![CDATA[3]]></node_order>
+<details><![CDATA[<p>Przypadki tetstowe dotyczące aktualizowania wygenerowanej przesyłki</p>
+]]></details> 
+</testsuite><testsuite id="13" name="Generowania etkiety wysyłkowej" >
+<node_order><![CDATA[4]]></node_order>
+<details><![CDATA[<p>Przypadki testowe dotyczące generowania etykiety wysyłkowej do utworzonej paczki</p>
+]]></details> 
+</testsuite><testsuite id="14" name="Anulowanie przesyłki" >
+<node_order><![CDATA[5]]></node_order>
+<details><![CDATA[<p>Przypadki testowe dotyczące anulowania wcześniej wygenerowanej przesyłki</p>
+]]></details> 
+</testsuite></testsuite>

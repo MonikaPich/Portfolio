@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>testspec Inpost API ShipX</title>
+	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin-left: 0.79in; margin-right: 0.39in; margin-top: 0.39in; margin-bottom: 0.39in }
+		p { font-family: "Arial", "Helvetica", sans-serif; font-size: 9pt; line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		h1 { text-align: left; margin-top: 0.52in; margin-bottom: 0.52in; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Serif", serif; font-size: 24pt; font-weight: bold }
+		h1.cjk { font-family: "Noto Serif CJK SC"; font-size: 24pt; font-weight: bold }
+		h1.ctl { font-family: "Lohit Devanagari"; font-size: 24pt; font-weight: bold }
+		h1.doclevel { border-top: none; border-bottom: 1px solid #000000; border-left: none; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0in; padding-right: 0in; page-break-before: always }
+		td p { font-family: "Arial", "Helvetica", sans-serif; font-size: 9pt; orphans: 0; widows: 0; background: transparent }
+		th p { font-family: "Arial", "Helvetica", sans-serif; font-size: 9pt; font-weight: bold; text-align: center; orphans: 0; widows: 0; background: transparent }
+		a:link { color: #000000; text-decoration: none }
+		a:visited { color: #000000; text-decoration: none }
+		strong { font-weight: bold }
+	</style>
+</head>
+<body lang="en-US" link="#000000" vlink="#000000" dir="ltr" style="border: none; padding: 0in"><p style="margin-bottom: 0in">
+TestLink Community [configure
+$tlCfg-&gt;document_generator-&gt;company_name]</p>
+<p style="margin-bottom: 0in">&nbsp;</p>
+<hr/>
+
+<p align="center"><img src="http://localhost:180/gui/themes/default/images/tl-logo-transparent-25.png" name="Image1" alt="TestLink logo" align="bottom" width="231" height="56" border="0"/>
+</p>
+<p>Test Specification</p>
+<p align="left">Test Project: Inpost API ShipX</p>
+<p><a name="printedby"></a>Printed by TestLink on 11/03/2023</p>
+<div id="copyright" dir="ltr"><p>2012 © TestLink Community</p>
+</div>
+<h1 class="general" style="page-break-before: always">Table Of
+Contents</h1>
+<p style="border: none; padding: 0in"><a href="#toc_1"><b>1.Tworzenie
+nowej przesyłki paczkomat 24/7</b></a></p>
+<p style="border: none; padding: 0in"><a href="#toc_tc4">IAS-1: TC
+2.1 - Tworzenie przesyłki Inpost paczkomat 24/7</a></p>
+<p style="border: none; padding: 0in"><a href="#toc_tc19">IAS-2: TC
+2.2 - Tworzenie paczki paczkomat 24/7 z błędnym nr telefonu</a></p>
+<p style="border: none; padding: 0in"><a href="#toc_tc30">IAS-3: TC
+2.3 - Tworzenie paczki paczkomat 24/7 z błędnym ID organizacji</a></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="border: none; padding: 0in"><a href="#toc_2"><b>2.Tworzenie
+podglądu przesyłek</b></a></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="border: none; padding: 0in"><a href="#toc_3"><b>3.Aktualizowanie
+przesyłki</b></a></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="border: none; padding: 0in"><a href="#toc_4"><b>4.Generowania
+etkiety wysyłkowej</b></a></p>
+<p><br/>
+<br/>
+
+</p>
+<p style="border: none; padding: 0in"><a href="#toc_5"><b>5.Anulowanie
+przesyłki</b></a></p>
+<h1 class="doclevel">Scope</h1>
+<p><strong>1.Wstęp</strong></p>
+<p>Celem testu jest weryfikacja poprwności funkcjonowania API ShipX</p>
+<p><strong>2. Zakres testów:</strong></p>
+<ul>
+	<li><p>testy funkcjonalne Inpost API ShipX 
+	</p>
+</ul>
+<p><strong>3. Przedmiot testów</strong></p>
+<p>Komponentem zakresu testów jest moduł: przygotowanie przesyłek,
+tracking przesyłki, zlecenia nadania oraz raport COD</p>
+<p><strong>4. Kryteria zaliczenia/niezaliiczenia</strong></p>
+<ul>
+	<li><p>pokrycie wszystkich zaprojektownych przypadków testowych 
+	</p>
+</ul>
+<p><strong>5.Kryteria wejscia/wyjścia</strong></p>
+<p><u>Kryteria wejścia:</u></p>
+<ul>
+	<li><p style="margin-bottom: 0in">Zakończona implementacja modułów
+	przygotowanie przesyłek, tracking przesyłki, zlecenia nadania oraz
+	raport COD 
+	</p>
+	<li><p style="margin-bottom: 0in">Skonfigurowane środowisko testowe
+		</p>
+	<li><p style="margin-bottom: 0in">Użytkownik posiada nadany numer
+	klienta z umowy kurierskiej (nr Trucker) 
+	</p>
+	<li><p style="margin-bottom: 0in">Użytkownik posiada nadany nr
+	organizacji 
+	</p>
+	<li><p>Użytkownik posiada aktywny token 
+	</p>
+</ul>
+<p><u>Kryteria wyjścia</u></p>
+<ul>
+	<li><p style="margin-bottom: 0in">Wszystkie zaprojektowane przypadki
+	testowe zostały zakończone pomyślnie 
+	</p>
+	<li><p>Komponenty spełniają wymagania opisane w dokumentacji 
+	</p>
+</ul>
+<p><strong>6. Lista wymagań</strong></p>
+<ol>
+	<li><p style="margin-bottom: 0in">Dokumentacja - :
+	https://dokumentacja-inpost.atlassian.net/wiki/spaces/PL/overview 
+	</p>
+	<li><p>Scenariusze testowe 
+	</p>
+</ol>
+<p><strong>7. Środowisko</strong></p>
+<ul>
+	<li><p style="margin-bottom: 0in">Srodowisko testowe - sandbox 
+	</p>
+	<li><p style="margin-bottom: 0in">System- Linux 
+	</p>
+	<li><p>Platforma- Postman 
+	</p>
+</ul>
+<p><strong>8. Harmonogram testów</strong></p>
+<ul>
+	<li><p style="margin-bottom: 0in">Testy funkcjonalne w oparciu o
+	dokumentację 
+	</p>
+	<li><p style="margin-bottom: 0in">Projektowanie przypadków
+	testowych 
+	</p>
+	<li><p>Wykonanie przypadków testowych 
+	</p>
+</ul>
+<p><strong>9. Raport z testów</strong></p>
+<ul>
+	<li><p>Lista zrealizowanych przypadków testowych wraz ze statusami 
+	</p>
+</ul>
+<p><strong>10. Lista narzędzi</strong></p>
+<ul>
+	<li><p style="margin-bottom: 0in">Jira 
+	</p>
+	<li><p style="margin-bottom: 0in">Postman 
+	</p>
+	<li><p>TestLink 
+	</p>
+</ul>
+<p><strong>11. Zarządzanie błędami, incydentami</strong></p>
+<p>Każdy wykryty błąd powinien być zaraportowany w sytemie Jira.</p>
+<p><u>Raport powinien zawierać:</u></p>
+<ol>
+	<li><p style="margin-bottom: 0in">Priorytet 
+	</p>
+	<li><p style="margin-bottom: 0in">Wersję testowanego komponentu 
+	</p>
+	<li><p style="margin-bottom: 0in">Nazwę testowanego komponentu 
+	</p>
+	<li><p style="margin-bottom: 0in">Osobę przypisaną (developera) 
+	</p>
+	<li><p>Szczegółowy opis błędu 
+	</p>
+</ol>
+<p>Wszystkie wykryte błędy powinien zostać zweryfikowany,
+naprawiony oraz przekazany do retestów.</p>
+<p><strong>12. Role i odpowiedzialność</strong></p>
+<ol>
+	<li><p style="margin-bottom: 0in">Projektowanie przypadkóœ
+	testowych - Monka Pichlińska 
+	</p>
+	<li><p>Wykonywanie przypadków testowych - Monika Pichlińska 
+	</p>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a name="toc_1"></a><br/>
+<br/>
+
+</p>
+<h1 class="doclevel">1.Test Suite : Tworzenie nowej przesyłki
+paczkomat 24/7</h1>
+<p>Version: 1.61.1-(2023-10-12)</p>
+<p>Environment: Sandbox</p>
+<p>Author: Monika Pchlińska</p>
+<p>Creation date: 28.10.2023</p>
+<p>test purpose :Celem testu jest sprawdzenie funkcjonalności
+tworzenia nowej przesyłki w usłudze Inpost paczkomat 24/7</p>
+<p>preconditions: 1. Sprawdzenie czy użytkownik posiada aktywne
+konto z nadanym numerem organizacji<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+2. Sprawdzenie czy użytkownik posiada ważny Token</p>
+<p>&nbsp;</p>
+<p><a name="toc_tc4"></a>&nbsp;</p>
+<table width="90%" cellpadding="2" cellspacing="2">
+	<tr>
+		<th colspan="4" style="border: none; padding: 0in"><p>Test Case
+			IAS-1: TC 2.1 - Tworzenie przesyłki Inpost paczkomat
+			24/7&nbsp;[Version : 1]</p>
+		</th>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Author:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>admin</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border: none; padding: 0in"><p style="margin-bottom: 0.2in">
+			Summary:</p>
+			<p style="margin-bottom: 0.2in">TC 2.1 - Tworzenie przesyłki&nbsp;
+			Inpost paczkomat 24/7</p>
+			<p style="margin-bottom: 0.2in">Platforma - Postman</p>
+			<p style="margin-bottom: 0.2in">Metoda HTTP : POST</p>
+			<p style="margin-bottom: 0.2in">Środowisko : sandbox</p>
+			<p style="margin-bottom: 0.2in">Wersja 1.61.1-(2023-10-12)</p>
+			<p>URL: https://sandbox-api-shipx-pl.easypack24.net</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border: none; padding: 0in"><p style="margin-bottom: 0.2in">
+			Preconditions:</p>
+			<ol>
+				<li><p>Użytkownik musi posiadać token, 
+				</p>
+				<li><p>Użytkownik musi posiadać nr id klienta - dosepny po
+				autoryzacji 
+				</p>
+				<li><p>Użytkownik musi posiadać nr umowy id trucker 
+				</p>
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: none; padding: 0in"><p>#:</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>Step actions:</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>Expected Results:</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>1</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>1.&nbsp; Wybierz endpoint
+			-v1/organizations/(id_organizations)/shipments, uzupełnij
+			odpowiedni ID organizacji</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>1. Utworzono poprawny
+			adrrs URL</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>2</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>2. W zakładce
+			authorization wybierz typ autoryzacji &quot;bearer token&quot;
+			oraz uzupełnij pole &quot;token&quot; swoim nr token</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>2. Token został
+			poprawnie wpisany</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>3</p>
+		</td>
+		<td style="border: none; padding: 0in"><p style="margin-bottom: 0.2in">
+			3. Należy uzupełnić dane wzakladce body wg&nbsp; wzoru zasobu
+			(format JSON)<br/>
+{<br/>
+&nbsp;&nbsp;&nbsp; &quot;receiver&quot;:
+			{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;name&quot;:
+			&quot;Name&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;company_name&quot;: &quot;Company name&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;first_name&quot;: &quot;Jan&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;last_name&quot;: &quot;Kowalski&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;email&quot;: &quot;test@inpost.pl&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;phone&quot;: &quot;111222333&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;parcels&quot;:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;template&quot;: &quot;small&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;insurance&quot;: {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;amount&quot;: 25,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;currency&quot;: &quot;PLN&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;cod&quot;: {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;amount&quot;: 12.50,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;currency&quot;: &quot;PLN&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;custom_attributes&quot;:
+			{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;sending_method&quot;: &quot;dispatch_order&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;target_point&quot;: &quot;KRA012&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;service&quot;:
+			&quot;inpost_locker_standard&quot;,<br/>
+&nbsp;&nbsp;&nbsp;
+			&quot;reference&quot;: &quot;Test&quot;,<br/>
+&nbsp;&nbsp;&nbsp;
+			&quot;external_customer_id&quot;: &quot;8877xxx&quot;<br/>
+}'</p>
+			<p>&nbsp;</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>3.&nbsp; Zakładka &quot;body&quot;
+			została poprawnie uzupełniona</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>4</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>4. Naciśnij przycisk
+			&quot;SEND&quot;</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>4. Pojawia się kod
+			opowiedzi &quot;kod odpowiedzi HTTP : 201 CREATED</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Execution
+			type:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>Manual</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Estimated
+			exec. duration (min):</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Importance:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>High</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Requirements</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>&nbsp;None</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Keywords:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>&nbsp;None</p>
+		</td>
+	</tr>
+</table>
+<p><a name="toc_tc19"></a>&nbsp;</p>
+<table width="90%" cellpadding="2" cellspacing="2">
+	<tr>
+		<th colspan="4" style="border: none; padding: 0in"><p>Test Case
+			IAS-2: TC 2.2 - Tworzenie paczki paczkomat 24/7 z błędnym nr
+			telefonu&nbsp;[Version : 1]</p>
+		</th>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Author:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>admin</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border: none; padding: 0in"><p style="margin-bottom: 0.2in">
+			Summary:</p>
+			<p style="margin-bottom: 0.2in">TC 2.1 - Tworzenie przesyłki
+			Inpost paczkomat 24/7 z błędnym nr telefonu</p>
+			<p style="margin-bottom: 0.2in">Platforma - Postman</p>
+			<p style="margin-bottom: 0.2in">Metoda HTTP : POST</p>
+			<p style="margin-bottom: 0.2in">Środowisko : sandbox</p>
+			<p style="margin-bottom: 0.2in">Wersja 1.61.1-(2023-10-12)</p>
+			<p>URL: https://sandbox-api-shipx-pl.easypack24.net</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border: none; padding: 0in"><p style="margin-bottom: 0.2in">
+			Preconditions:</p>
+			<ol>
+				<li><p>Użytkownik musi posiadać token, 
+				</p>
+				<li><p>Użytkownik musi posiadać nr id klienta - dosepny po
+				autoryzacji 
+				</p>
+				<li><p>Użytkownik musi posiadać nr umowy id trucker 
+				</p>
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: none; padding: 0in"><p>#:</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>Step actions:</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>Expected Results:</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>1</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>1.&nbsp; Wybierz endpoint
+			-v1/organizations/(id_organizations)/shipments, uzupełnij
+			odpowiedni ID organizacji</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>1. Utworzono poprawny
+			adrrs URL</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>2</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>2. W zakładce
+			authorization wybierz typ autoryzacji &quot;bearer token&quot;
+			oraz uzupełnij pole &quot;token&quot; swoim nr token</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>2. Token został
+			poprawnie wpisany</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>3</p>
+		</td>
+		<td style="border: none; padding: 0in"><p style="margin-bottom: 0.2in">
+			3. Należy uzupełnić dane wzakladce body wg&nbsp; wzoru zasobu
+			(format JSON)<br/>
+{<br/>
+&nbsp;&nbsp;&nbsp; &quot;receiver&quot;:
+			{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;name&quot;:
+			&quot;Name&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;company_name&quot;: &quot;Company name&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;first_name&quot;: &quot;Jan&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;last_name&quot;: &quot;Kowalski&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;email&quot;: &quot;test@inpost.pl&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;phone&quot;: &quot;111222333&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;parcels&quot;:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;template&quot;: &quot;small&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;insurance&quot;: {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;amount&quot;: 25,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;currency&quot;: &quot;PLN&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;cod&quot;: {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;amount&quot;: 12.50,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;currency&quot;: &quot;PLN&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;custom_attributes&quot;:
+			{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;sending_method&quot;: &quot;dispatch_order&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;target_point&quot;: &quot;KRA012&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;service&quot;:
+			&quot;inpost_locker_standard&quot;,<br/>
+&nbsp;&nbsp;&nbsp;
+			&quot;reference&quot;: &quot;Test&quot;,<br/>
+&nbsp;&nbsp;&nbsp;
+			&quot;external_customer_id&quot;: &quot;8877xxx&quot;<br/>
+}'</p>
+			<p>&nbsp;</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>3.&nbsp; Zakładka &quot;body&quot;
+			została poprawnie uzupełniona</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>4</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>4. Uzupełnij parametr
+			&quot;&quot;phone&quot;: błędnym formatem np 123-123-123</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>4. Format nr telefonu
+			został zmieniony</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>5</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>5. Naciśnij przycisk
+			&quot;SEND&quot;</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>5. Kod odpowiedzi 400 bad
+			request.&nbsp; W body odpowiedzi pojawi się informacja o błędzie
+			validation_failed</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Execution
+			type:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>Manual</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Estimated
+			exec. duration (min):</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Importance:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>High</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Requirements</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>&nbsp;None</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Keywords:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>&nbsp;None</p>
+		</td>
+	</tr>
+</table>
+<p><a name="toc_tc30"></a>&nbsp;</p>
+<table width="90%" cellpadding="2" cellspacing="2">
+	<tr>
+		<th colspan="4" style="border: none; padding: 0in"><p>Test Case
+			IAS-3: TC 2.3 - Tworzenie paczki paczkomat 24/7 z błędnym ID
+			organizacji&nbsp;[Version : 1]</p>
+		</th>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Author:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>admin</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border: none; padding: 0in"><p style="margin-bottom: 0.2in">
+			Summary:</p>
+			<p style="margin-bottom: 0.2in">TC 2.1 - Tworzenie przesyłki
+			Inpost paczkomat 24/7 dla niepoprawnego nr organizacji</p>
+			<p style="margin-bottom: 0.2in">Platforma - Postman</p>
+			<p style="margin-bottom: 0.2in">Metoda HTTP : POST</p>
+			<p style="margin-bottom: 0.2in">Środowisko : sandbox</p>
+			<p style="margin-bottom: 0.2in">Wersja 1.61.1-(2023-10-12)</p>
+			<p>URL: https://sandbox-api-shipx-pl.easypack24.net</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border: none; padding: 0in"><p style="margin-bottom: 0.2in">
+			Preconditions:</p>
+			<ol>
+				<li><p>Użytkownik musi posiadać token, 
+				</p>
+				<li><p>Użytkownik musi posiadać nr id klienta - dosepny po
+				autoryzacji 
+				</p>
+				<li><p>Użytkownik musi posiadać nr umowy id trucker 
+				</p>
+			</ol>
+		</td>
+	</tr>
+	<tr>
+		<td style="border: none; padding: 0in"><p>#:</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>Step actions:</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>Expected Results:</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>1</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>1. 1.&nbsp; Wybierz
+			endpoint -v1/organizations/(id_organizations)/shipments, uzupełnij
+			odpowiedni ID organizacji</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>1. Utworzono poprawny
+			adrrs URL</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>2</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>2. W zakładce
+			authorization wybierz typ autoryzacji &quot;bearer token&quot;
+			oraz uzupełnij pole &quot;token&quot; swoim nr token</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>2. Token został
+			poprawnie wpisany</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>3</p>
+		</td>
+		<td style="border: none; padding: 0in"><p style="margin-bottom: 0.2in">
+			3. Należy uzupełnić dane wzakladce body wg&nbsp; wzoru zasobu
+			(format JSON)<br/>
+{<br/>
+&nbsp;&nbsp;&nbsp; &quot;receiver&quot;:
+			{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;name&quot;:
+			&quot;Name&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;company_name&quot;: &quot;Company name&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;first_name&quot;: &quot;Jan&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;last_name&quot;: &quot;Kowalski&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;email&quot;: &quot;test@inpost.pl&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;phone&quot;: &quot;111222333&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;parcels&quot;:<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;template&quot;: &quot;small&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;insurance&quot;: {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;amount&quot;: 25,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;currency&quot;: &quot;PLN&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;cod&quot;: {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;amount&quot;: 12.50,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;currency&quot;: &quot;PLN&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;custom_attributes&quot;:
+			{<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;sending_method&quot;: &quot;dispatch_order&quot;,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&quot;target_point&quot;: &quot;KRA012&quot;<br/>
+&nbsp;&nbsp;&nbsp;
+			},<br/>
+&nbsp;&nbsp;&nbsp; &quot;service&quot;:
+			&quot;inpost_locker_standard&quot;,<br/>
+&nbsp;&nbsp;&nbsp;
+			&quot;reference&quot;: &quot;Test&quot;,<br/>
+&nbsp;&nbsp;&nbsp;
+			&quot;external_customer_id&quot;: &quot;8877xxx&quot;<br/>
+}'</p>
+			<p>&nbsp;</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>3.&nbsp; Zakładka &quot;body&quot;
+			została poprawnie uzupełniona</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>4</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>4. Uzupełniając
+			endpoint wpisz błędny id organizations - inny niż dostępny po
+			autoryzacji</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>4. ID organizacji zostało
+			uzupełnione błędnym nr</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="5" style="border: none; padding: 0in"><p>5</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>5. Naciśnij przycisk
+			&quot;SEND&quot;</p>
+		</td>
+		<td style="border: none; padding: 0in"><p>5. Kod odpowiedzi 403
+			forbidden. W body odpowiedzi pojawi się informacja o błędzie
+			&quot;forbidden&quot;</p>
+		</td>
+		<td valign="top" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Execution
+			type:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>Manual</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Estimated
+			exec. duration (min):</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Importance:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>High</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="4" style="border: none; padding: 0in"></td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Requirements</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>&nbsp;None</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" valign="top" style="border: none; padding: 0in"><p>Keywords:</p>
+		</td>
+		<td colspan="3" style="border: none; padding: 0in"><p>&nbsp;None</p>
+		</td>
+	</tr>
+</table>
+<h1 class="doclevel"><a name="toc_2"></a>2.Test Suite : Tworzenie
+podglądu przesyłek</h1>
+<p>Przypadki testowe dotyczące tworzenia podglądu przesyłek</p>
+<h1 class="doclevel"><a name="toc_3"></a>3.Test Suite :
+Aktualizowanie przesyłki</h1>
+<p>Przypadki tetstowe dotyczące aktualizowania wygenerowanej
+przesyłki</p>
+<h1 class="doclevel"><a name="toc_4"></a>4.Test Suite : Generowania
+etkiety wysyłkowej</h1>
+<p>Przypadki testowe dotyczące generowania etykiety wysyłkowej do
+utworzonej paczki</p>
+<h1 class="doclevel"><a name="toc_5"></a>5.Test Suite : Anulowanie
+przesyłki</h1>
+<p>Przypadki testowe dotyczące anulowania wcześniej wygenerowanej
+przesyłki</p>
+</body>
+</html>

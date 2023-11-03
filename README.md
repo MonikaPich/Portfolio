@@ -7,6 +7,8 @@ A logistician with 12 years' experience. During my career, I had the opportunity
 ## Skils
 * Postman
 * SQL
+* TestLink
+* Jira
 * HTTP Protocol
 * Rest API
 * Test Case creating
@@ -20,7 +22,14 @@ A logistician with 12 years' experience. During my career, I had the opportunity
 * [Scenariusze testowe Inpost ShipX](Scenariusze_testowe_Inpost_API_ShipX_v2.xlsx)
 * [Przypadki testowe- inpost tworzenie przesyłki](TS_1_Przypadki_testowe_tworzenie_przesylek_v3(1).xlsx) 
 * [Inpost tworzenie przesyłki kolekcja zapytań Postman v2.1](Inspost_tworzenie_nowej_przesylki.postman_collection.json) 
+
+##### SQL
 * [My SQL training](https://github.com/MonikaPich/Portfolio/tree/master/sql#my-sql-training)
+
+##### Bug raports (Jira training)
+
+
+##### TestLink
 
 ## Certificates
 ISTQB Certified Tester Foundation Level\
