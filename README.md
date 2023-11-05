@@ -28,6 +28,7 @@ A logistician with 12 years' experience. During my career, I had the opportunity
 * [My SQL training](https://github.com/MonikaPich/Portfolio/tree/master/sql#my-sql-training)
 
 ##### Bug raports (Jira training)
+* [My Jira training] 
 
 
 ##### TestLink
