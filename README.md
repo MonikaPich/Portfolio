@@ -2,7 +2,14 @@
 ### Junior Manual Tester
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/monika-pichlińska-157675283)
 ## About me
-A logistician with 12 years' experience. During my career, I had the opportunity to participate in beta acceptance testing during the implementation of a new WMS system in the organisation, which sparked my interest in software testing. In October 2023 I obtained the ISTQB Tester Foundation Level Certificate. I would like to continue my professional development and take on new challenges, using my knowledge of logistics for software testing.
+I am a beginner manual tester.
+Until now, I have worked as a logistician for a leading Christmas decoration company.
+My interest in software testing started during the implementation of a new WMS system in the company where I worked.
+At the time, I took part in beta acceptance tests of the new WMS.
+In October 20123, I obtained the ISTQB Certified Tester Foundation Level.
+I am constantly expanding my knowledge of testing and practicing new skills in test case development and REST APIs.
+I am also learning HTML + CSS and JavaScript.
+I want to develop my career in software testing using the knowledge and skills I have gained in logistics.
 
 ## Skils
 * Postman
@@ -16,6 +23,9 @@ A logistician with 12 years' experience. During my career, I had the opportunity
 * WMS (Synaptic, Logifact)
 
 ## Portfolio
+
+##### Cocolita.pl - GUI functional tests
+* [Scenariusze testowe - sklep internetowy Cocolita.pl](Scenariusze_testowe_sklep_internetowy_Cocolita.pl.xlsx)
 
 ##### Inpost API ShipX - functional tests
 [Documentaction source](https://dokumentacja-inpost.atlassian.net/wiki/spaces/PL/overview?homepageId=622760)
