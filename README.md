@@ -26,6 +26,7 @@ I want to develop my career in software testing using the knowledge and skills I
 
 ##### Cocolita.pl - GUI functional tests
 * [Scenariusze testowe - sklep internetowy Cocolita.pl](Scenariusze_testowe_sklep_internetowy_Cocolita.pl.xlsx)
+* [Przypadki testowe Rejestracja nowego użytkownika](Przypadki_testowe_Rejestracja_nowego_użytkownika.xlsx)
 
 ##### Inpost API ShipX - functional tests
 [Documentaction source](https://dokumentacja-inpost.atlassian.net/wiki/spaces/PL/overview?homepageId=622760)
