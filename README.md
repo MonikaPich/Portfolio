@@ -21,6 +21,8 @@ I want to develop my career in software testing using the knowledge and skills I
 * Test Case creating
 * ERP (Comarch CDN XL)
 * WMS (Synaptic, Logifact)
+* BPMN 2.0
+* EXCEL
 
 ## Portfolio
 
@@ -45,6 +47,10 @@ I want to develop my career in software testing using the knowledge and skills I
 ##### TestLink
 * [My TestLink training - report HTML](https://github.com/MonikaPich/Portfolio/blob/master/TestLink/TestLink_IAS_test_spec.html)
 * [My Testlink project export](https://github.com/MonikaPich/Portfolio/blob/master/TestLink/Inpost%20API%20ShipX.testproject-deep(1).xml)
+
+
+##### analysis 
+* [Analysis repository](https://github.com/MonikaPich/analysis/blob/master/README.md)
 
 
 ## Certificates
