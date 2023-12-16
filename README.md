@@ -2,14 +2,14 @@
 ### Junior Manual Tester
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/monika-pichlińska-157675283)
 ## About me
-I am a beginner manual tester.
-Until now, I have worked as a logistician for a leading Christmas decoration company.
-My interest in software testing started during the implementation of a new WMS system in the company where I worked.
-At the time, I took part in beta acceptance tests of the new WMS.
-In October 20123, I obtained the ISTQB Certified Tester Foundation Level.
-I am constantly expanding my knowledge of testing and practicing new skills in test case development and REST APIs.
-I am also learning HTML + CSS and JavaScript.
-I want to develop my career in software testing using the knowledge and skills I have gained in logistics.
+Previously, I worked as a logistician for a leading company producing
+Christmas decorations. My interest in analysing and testing
+analysis and testing of software began during the implementation of a new WMS
+system at the company where I worked.
+At that time, I participated in the creation of system requirements and in the
+acceptance testing of the new WMS.
+In October 2023, I obtained the ISTQB Certified Tester
+Foundation Level.
 
 ## Skils
 * Postman
