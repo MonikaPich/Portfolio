@@ -43,3 +43,8 @@ SELECT * FROM employees WHERE hire_date BETWEEN '1991-01-01' AND '1998-12-31' OR
 SELECT title, COUNT(emp_no) AS number_of_pepole FROM titles GROUP BY title ORDER BY title ASC;
 ```
 ![screen7](7.png)
+
+8. Przypisz wynagrodzenia z tabeli "salary" do odpowiednich pracowników w tabeli "employees"
+```sql
+SELECT employees.emp_no, employees.birth_date, employees.first_name, employees.last_name, employees.hire_date, employees.gender, salaries.salary FROM employees LEFT JOIN salaries ON employees.emp_no = salaries.emp_no; 
+![screen7](8.png)
