@@ -49,3 +49,15 @@ SELECT title, COUNT(emp_no) AS number_of_pepole FROM titles GROUP BY title ORDER
 SELECT employees.emp_no, employees.birth_date, employees.first_name, employees.last_name, employees.hire_date, employees.gender, salaries.salary FROM employees LEFT JOIN salaries ON employees.emp_no = salaries.emp_no;
 ```
 ![screen7](8.png)
+
+9. Połącz kolumnę first_name z kolumną last_name i nazwij ją employee
+```sql
+SELECT emp_no, birth_date, CONCAT(first_name, " ", last_name) AS employee, gender FROM `employees`;
+```
+![screen7](9.png)
+
+10. Do tabeli z nazwami stanowisk przypisz imiona i nazwiska pracowników połączone w jedną kolumnę, datę urodzin oraz płeć
+```sql
+SELECT titles.emp_no, titles.title, titles.from_date, titles.to_date, CONCAT(employees.first_name, " ", employees.last_name) AS employee, employees.birth_date, employees.gender FROM `titles` LEFT JOIN employees ON titles.emp_no = employees.emp_no;
+```
+![screen7](10.png)
