@@ -1,15 +1,11 @@
 # Monika Pichlińska
-### Junior Manual Tester
+### Aspiring Manual Tester and Process Analyst
 [![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/monika-pichlińska-157675283)
 ## About me
-Previously, I worked as a logistician for a leading company producing
-Christmas decorations. My interest in analysing and testing
-analysis and testing of software began during the implementation of a new WMS
-system at the company where I worked.
-At that time, I participated in the creation of system requirements and in the
-acceptance testing of the new WMS.
-In October 2023, I obtained the ISTQB Certified Tester
-Foundation Level.
+Up to now, I have worked as a logistician for a leading Christmas decoration company. My interest in software analysis and testing started during the implementation of a new WMS in the company where I worked.
+At that time, I participated in the development of system requirements and acceptance testing of the new WMS.
+In October 2023, I obtained my ISTQB Certified Tester Foundation Level certification. I learned the basics of BPMN notation.
+I am currently learning Python and IREB related issues.
 
 ## Skils
 * Postman
@@ -18,6 +14,7 @@ Foundation Level.
 * Jira
 * HTTP Protocol
 * Rest API
+* HTML & CSS
 * Test Case creating
 * ERP (Comarch CDN XL)
 * WMS (Synaptic, Logifact)
