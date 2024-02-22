@@ -25,7 +25,9 @@ I am currently learning Python and IREB related issues.
 ## Portfolio
 
 ##### Testing
-* 
+* [Test case]()
+* [My bug reports in Jira](https://github.com/MonikaPich/Portfolio/tree/master/Jira)
+* [My Testlink project export](https://github.com/MonikaPich/Portfolio/blob/master/TestLink/Inpost%20API%20ShipX.testproject-deep(1).xml)
 
 
 ##### Analysis 
