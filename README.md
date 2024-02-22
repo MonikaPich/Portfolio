@@ -17,7 +17,7 @@ I am currently learning Python and IREB related issues.
 * HTML & CSS
 * Test Case creating
 * ERP (Comarch CDN XL)
-* WMS (Synaptic, Logifact)
+* WMS (Synaptic, Logifact) 
 * BPMN 2.0
 * EXCEL
 * Power BI
@@ -25,9 +25,9 @@ I am currently learning Python and IREB related issues.
 ## Portfolio
 
 ##### Testing
-* [Test case]()
-* [My bug reports in Jira](https://github.com/MonikaPich/Portfolio/tree/master/Jira)
-* [My Testlink project export](https://github.com/MonikaPich/Portfolio/blob/master/TestLink/Inpost%20API%20ShipX.testproject-deep(1).xml)
+* [Test case](https://github.com/MonikaPich/Portfolio/tree/master/Testing/Test%20case)
+* [My bug reports in Jira](https://github.com/MonikaPich/Portfolio/tree/master/Testing/Jira)
+* [My Testlink project export](https://github.com/MonikaPich/Portfolio/blob/master/Testing/TestLink/Inpost%20API%20ShipX.testproject-deep(1).xml)
 
 
 ##### Analysis 
